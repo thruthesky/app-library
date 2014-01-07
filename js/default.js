@@ -1,4 +1,5 @@
 var device_ready = false;
+var default_version = '2014010702';
 
 if ( is_phonegap() ) {
 	document.addEventListener('deviceready', onDeviceReady, false);
@@ -10,7 +11,10 @@ $(function(){
 	trace("App begins (default.js) ...");
 	if ( is_phonegap() ) {
 		trace("Phonegap is running ...");
-		add_javascript('../cordova.js');
+		/* cordova.js 를 로딩하는 위치가 IDE 또는 platform 마다 틀리다. */
+		if ( ide == 'aide' ) add_javascript('../js/cordova.js');
+		else if ( ide == 'eclipse-adt' ) add_javascript('../cordova.js');
+		else add_javascript('../js/cordova.js');
 	}
 	else {
 		trace("It is not phonegap ...");
