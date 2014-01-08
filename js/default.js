@@ -11,6 +11,7 @@ $(function(){
 	trace("App begins (default.js) ...");
 	if ( is_phonegap() ) {
 		trace("Phonegap is running ...");
+		message(ide);
 		/* cordova.js 를 로딩하는 위치가 IDE 또는 platform 마다 틀리다. */
 		if ( ide == 'aide' ) add_javascript('../js/cordova.js');
 		else if ( ide == 'eclipse-adt' ) add_javascript('../cordova.js');
@@ -86,6 +87,9 @@ function on_offline()
 function is_online() { return is_network_online(); }
 function is_network_online()
 {
+	// todo: 디버 모드 경우에 참 리턴하도록한다
+	
+	return true;
 	trace("is_network_online() begins ...");
 	if ( ! is_phonegap() ) {
 		trace("It is not PhoneGap. It's PC. Just return true;");
