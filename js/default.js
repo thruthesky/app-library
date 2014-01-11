@@ -13,7 +13,7 @@ $(function(){
 	if ( is_phonegap() ) {
 		trace("Cordova is running ...");
 		/**		#cordova.js		 */
-		add_javascript('../js/cordova.js');
+		if ( debug ) add_javascript('../js/cordova.js');
 		add_javascript('../cordova.js');
 	}
 	else {
