@@ -7,15 +7,22 @@ if ( is_phonegap() ) {
 else {
 	onDeviceReady();
 }
+
 $(function(){
-	trace("App begins (default.js) ...");
+	trace("default.js begins ...");
 	if ( is_phonegap() ) {
-		trace("Phonegap is running ...");
-		message(ide);
+		trace("Cordova is running ...");
+		trace("Corodva Development System: " + ide);
+		add_javascript('../js/cordova.js');
+		add_javascript('../cordova.js');
+		
+		
 		/* cordova.js 를 로딩하는 위치가 IDE 또는 platform 마다 틀리다. */
+		/*
 		if ( ide == 'aide' ) add_javascript('../js/cordova.js');
 		else if ( ide == 'eclipse-adt' ) add_javascript('../cordova.js');
 		else add_javascript('../js/cordova.js');
+		*/
 	}
 	else {
 		trace("It is not phonegap ...");
